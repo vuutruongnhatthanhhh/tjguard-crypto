@@ -1,5 +1,7 @@
 # tjguard-crypto
 
+[![npm](https://img.shields.io/npm/v/tjguard-crypto)](https://www.npmjs.com/package/tjguard-crypto)
+
 Cryptographic primitives powering [TJGuard](https://tjguard.com) — a zero-knowledge password manager.
 
 All operations run entirely on the client. The server stores only ciphertext and never sees plaintext passwords or raw keys.
