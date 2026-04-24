@@ -1,12 +1,23 @@
 {
   "name": "tjguard-crypto",
   "version": "0.1.0",
-  "description": "Cryptographic primitives used by TJGuard password manager",
+  "description": "Cryptographic primitives powering TJGuard password manager",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./src/index.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
+  },
+  "files": [
+    "dist",
+    "SPEC.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc"
   },
   "dependencies": {
     "@stablelib/xchacha20poly1305": "^1.0.1",

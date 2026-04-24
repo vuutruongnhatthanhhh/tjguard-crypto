@@ -61,12 +61,21 @@ export async function hkdfSha256(
   info: Uint8Array,
   len = 32,
 ): Promise<Uint8Array> {
-  const baseKey = await crypto.subtle.importKey("raw", ikm, "HKDF", false, [
-    "deriveBits",
-  ]);
+  const baseKey = await crypto.subtle.importKey(
+    "raw",
+    ikm as unknown as ArrayBuffer,
+    "HKDF",
+    false,
+    ["deriveBits"],
+  );
 
   const bits = await crypto.subtle.deriveBits(
-    { name: "HKDF", hash: "SHA-256", salt, info },
+    {
+      name: "HKDF",
+      hash: "SHA-256",
+      salt: salt as unknown as ArrayBuffer,
+      info: info as unknown as ArrayBuffer,
+    },
     baseKey,
     len * 8,
   );
